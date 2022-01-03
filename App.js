@@ -1,6 +1,7 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 
+
 //Screens
 import FirstPage from './Screens/HomeScreen'
 import LevelTwo from './Screens/LevelTwo';
@@ -14,8 +15,17 @@ const Stack = createStackNavigator();
 //Store
 import {store} from './redux/store';
 import { frontFontColor, primaryColorBackgroundColor } from './Components/Colors';
+import CodePush from 'react-native-code-push';
 
-export default function App() {
+let CodePushOptions = {
+  checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME,
+  mandatoryInstallMode: CodePush.InstallMode.IMMEDIATE,
+  updateDialog: {
+    appendReleaseDescription: true,
+    title: "a new update is available"
+}}
+
+function App() {
   
   return (
     <Provider store={store}>
@@ -44,13 +54,13 @@ export default function App() {
           headerShadowVisible: false,
           headerTitleAlign: 'center'
           }}/>
-          <Stack.Screen name="Profile" component={Profile} />
+          <Stack.Screen name="My Profile" component={Profile} />
           <Stack.Screen name="Payment" component={Payment} />
         </Stack.Navigator>
-        
       </NavigationContainer>
     </Provider>
   )
 }
+export default CodePush(CodePushOptions)(App);
 
  

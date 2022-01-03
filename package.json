@@ -9,7 +9,8 @@
     "build": "(cd android/ && ./gradlew assembleDebug)",
     "start": "node node_modules/react-native/local-cli/cli.js start && react-native start",
     "bundle-android": "react-native bundle --platform android --dev false --entry-file index.android.js --bundle-output android/app/src/main/assets/index.android.bundle --sourcemap-output android/app/src/main/assets/index.android.map --assets-dest android/app/src/main/res/",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "CodePush:android": "appcenter CodePush release-react -a ragavibalaji2610-gmail.com/wordgame1-Android -d Production"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
